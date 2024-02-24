@@ -1,16 +1,14 @@
 package org.model;
 
 public abstract class GeneralSong {
+    protected int id;
     protected String nombre;
-    protected String duration;
     protected String gender;
-    protected Artist artist;
 
-    public GeneralSong(String nombre, String duration, String gender, Artist artist) {
+    public GeneralSong(int id, String nombre, String gender) {
+        this.id = id;
         this.nombre = nombre;
-        this.duration = duration;
         this.gender = gender;
-        this.artist = artist;
     }
 
     public String getNombre() {
@@ -21,13 +19,6 @@ public abstract class GeneralSong {
         this.nombre = nombre;
     }
 
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
 
     public String getGender() {
         return gender;
@@ -37,11 +28,11 @@ public abstract class GeneralSong {
         this.gender = gender;
     }
 
-    public Artist getArtist() {
-        return artist;
+    public int getId() {
+        return id;
     }
 
-    public void setArtist(Artist artist) {
-        this.artist = artist;
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -1,18 +1,28 @@
 package org.model;
 
 public class Song extends GeneralSong{
-    private Album album;
+    private boolean album;
 
-    public Song(String nombre, String duration, String gender, Artist artist, Album album) {
-        super(nombre, duration, gender, artist);
-        this.album = album;
+    public Song(int id, String nombre, String gender) {
+        super(id, nombre, gender);
+        this.album = true;
     }
 
-    public Album getAlbum() {
+    public boolean getAlbum() {
         return album;
     }
 
-    public void setAlbum(Album album) {
+    public void setAlbum(boolean album) {
         this.album = album;
+    }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "album=" + album +
+                ", id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
     }
 }

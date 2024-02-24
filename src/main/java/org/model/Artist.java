@@ -3,30 +3,25 @@ package org.model;
 import java.util.ArrayList;
 
 public class Artist {
+    private int id;
     private String name;
-    private String real;
     private String artisticName;
     private String country;
     private int age;
     private ArrayList<Album> albums;
-    private ArrayList<GeneralSong> songs;
 
-    public Artist(String name, String real, String artisticName, String country, int age) {
+    public Artist(int id, String name, String artisticName, String country, int age) {
+        this.id = id;
         this.name = name;
-        this.real = real;
         this.artisticName = artisticName;
         this.country = country;
         this.age = age;
         this.albums = new ArrayList<>();
-        this.songs = new ArrayList<>();
     }
-
-    public void setSong(GeneralSong song){
-        this.songs.add(song);
-    }
-
-    public void removeSong(GeneralSong song){
-        this.songs.remove(song);
+    public void viewSongs(){
+        for (Album album : this.albums) {
+            album.viewSongs();
+        }
     }
 
     public void setAlbum(Album album){
@@ -37,20 +32,20 @@ public class Artist {
         this.albums.remove(album);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getReal() {
-        return real;
-    }
-
-    public void setReal(String real) {
-        this.real = real;
     }
 
     public String getArtisticName() {
@@ -85,11 +80,15 @@ public class Artist {
         this.albums = albums;
     }
 
-    public ArrayList<GeneralSong> getSongs() {
-        return songs;
-    }
-
-    public void setSongs(ArrayList<GeneralSong> songs) {
-        this.songs = songs;
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", artisticName='" + artisticName + '\'' +
+                ", country='" + country + '\'' +
+                ", age=" + age +
+                ", albums=" + albums +
+                '}';
     }
 }

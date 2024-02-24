@@ -3,27 +3,41 @@ package org.model;
 import java.util.ArrayList;
 
 public class Album {
+    private int id;
     private String name;
     private int numSongs;
-    private String duration;
     private int publishAge;
     private String gender;
     private ArrayList<GeneralSong> songs;
 
-    public Album(String name, int numSongs, String duration, int publishAge, String gender) {
+    public Album(int id, String name, int numSongs, int publishAge, String gender) {
+        this.id = id;
         this.name = name;
         this.numSongs = numSongs;
-        this.duration = duration;
         this.publishAge = publishAge;
         this.gender = gender;
         this.songs = new ArrayList<>();
     }
-    public void setSong(GeneralSong song){
+
+    public void viewSongs(){
+        this.songs.forEach(p -> System.out.println("Song: " + p.getNombre()));
+    }
+
+    public Album setSong(Song song){
         this.songs.add(song);
+        return this;
     }
 
     public void removeSong(GeneralSong song){
         this.songs.remove(song);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -42,13 +56,6 @@ public class Album {
         this.numSongs = numSongs;
     }
 
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
 
     public int getPublishAge() {
         return publishAge;
@@ -72,5 +79,17 @@ public class Album {
 
     public void setSongs(ArrayList<GeneralSong> songs) {
         this.songs = songs;
+    }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", numSongs=" + numSongs +
+                ", publishAge=" + publishAge +
+                ", gender='" + gender + '\'' +
+                ", songs=" + songs +
+                '}';
     }
 }

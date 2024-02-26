@@ -13,6 +13,9 @@ public class Inicio {
         Song c3 = new Song(1, "Dog","Progressive Rock");
 
         Artist a2 = new Artist(1,"Roger Waters","Pink","England", 62);
+        Artist a3 = new Artist(1,"Roger Waters","Pink","England", 62);
+        Artist a4 = new Artist(1,"Roger Waters","Pink","England", 62);
+        Artist a5 = new Artist(1,"Roger Waters","Pink","England", 62);
 
         al1.setSong(c1).setSong(c2).setSong(c3);
         System.out.println("Album = " + al1);
